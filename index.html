@@ -1,13 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naqy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f5ee">
+  <meta name="description" content="تحقق من تشغيلات عسل نَقِيّ الموالح والبرسيم، واقرأ نتائج تحليل العينة مع شرح وحدود المواصفة المصرية وشهادة المعمل الكاملة.">
+  <title>التحقق من تشغيلة العسل | نَقِيّ</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preload" as="image" href="assets/honey.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>Naqy</h1>
-    <p>Welcome to Naqy!</p>
-    <h2>Coming soon...</h2>
+  <header class="topbar shell">
+    <a class="brand" href="./" aria-label="نَقِيّ، الصفحة الرئيسية">
+      <img src="assets/naqi-logo.png" width="832" height="513" alt="نَقِيّ — نقاء الطبيعة بين إيديك">
+    </a>
+    <small>رحلة العسل، بكل وضوح</small>
+  </header>
+  <main>
+    <section class="hero shell" id="lookup" aria-labelledby="main-title">
+      <div class="hero-copy">
+        <div class="eyebrow">من المنحل إلى برطمانك</div>
+        <h1 id="main-title">اطمئن بنفسك<br>على تشغيلة عسلك</h1>
+        <p>ابدأ بكتابة رقم التشغيلة الموجود على العبوة، وستظهر لك اقتراحات. ويمكنك اختيار النوع مباشرة.</p>
+        <form class="search" id="search-form" novalidate>
+          <label for="batch-input">رقم التشغيلة</label>
+          <div class="field">
+            <input id="batch-input" name="batch" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="batch-suggestions" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="مثال: CIT-0926" maxlength="20" required aria-describedby="search-error">
+          </div>
+          <div class="suggestion-list hidden" id="batch-suggestions" role="listbox" aria-label="اقتراحات التشغيلات"></div>
+          <button class="primary" type="submit">عرض تفاصيل التشغيلة</button>
+          <div class="error" id="search-error" role="alert"></div>
+        </form>
+        <div class="batch-picker" aria-label="التشغيلات المتاحة">
+          <span>أو اختر التشغيلة</span>
+          <div class="batch-options">
+            <button type="button" data-batch="CIT-0926">عسل الموالح <bdi>CIT-0926</bdi></button>
+            <button type="button" data-batch="CLV-0926">عسل البرسيم <bdi>CLV-0926</bdi></button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art"><img src="assets/honey.webp" width="1024" height="1365" alt="برطمان عسل ذهبي بجوار زهور الموالح" decoding="async" fetchpriority="high"></div>
+    </section>
+    <section class="result shell hidden" id="result" aria-labelledby="result-title">
+      <div class="result-head">
+        <div>
+          <button class="back" id="back" type="button">العودة للبحث</button>
+          <h2 id="result-title">نتائج تحليل التشغيلة</h2>
+          <span class="batch" id="batch-id"></span>
+        </div>
+        
+      </div>
+      
+      <div class="grid">
+        <article class="card"><h3>بيانات الشهادة</h3><dl class="facts" id="facts"></dl></article>
+        <article class="card results-card">
+          <h3>نتائج التحليل ومعنى الأرقام</h3>
+          
+            <div class="metrics" id="metrics">
+
+            </div>
+            
+              </article>
+        <article class="card report-card">
+          <div><h3>شهادة التحليل الكاملة</h3><p>الصفحتان كما وردتا في صور المعمل، وتشملان تفاصيل طرق القياس وملاحظاته.</p></div>
+          <a class="primary report-link" id="report-link" href="#" target="_blank" rel="noopener">عرض التقرير الكامل (PDF)</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell"><span>© <span id="year"></span> نَقِيّ · وضوح من أول قطرة</span><span>نتائج التحليل تخص العينات المذكورة في الشهادات</span></div></footer>
 </body>
 </html>
