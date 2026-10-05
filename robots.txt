@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://naqy-verify.pages.dev/sitemap.xml
